@@ -15,17 +15,18 @@ body {
   overflow: hidden;
   height: 50px; 
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar a {
   margin-top: 30px;
-  float: left;
-  display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
   line-height: 20px; 
+  display: block;
 }
 
 .navbar a:hover {
@@ -35,7 +36,6 @@ body {
 
 .logo {
   margin-top: 10px;
-  float: left;
   display: block;
   text-decoration: none;
   margin-left: 30px;
@@ -44,6 +44,8 @@ body {
 .containerprincipal {
   display: flex;
   flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap; 
   height: calc(100vh - 48px); 
   padding: 10px; 
   box-sizing: border-box; 
@@ -51,31 +53,32 @@ body {
 
 .container {
   padding: 10px; 
+  flex: 1;
+}
+
+.container1, .container2 {
+  background-color: #EEEEEE;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .container1 {
-  width: calc(75% - 10px); 
+  flex: 3;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
-  border: none;
-  margin-right: 10px;
-  background-color: #EEEEEE;
-  border-radius: 45px;
 }
 
 .container1 textarea {
   background-color: #EEEEEE;
   width: 100%;
   height: 80%;
-  box-sizing: border-box; 
-  padding: 10px;
-  border-radius: 45px;
-  font-size: 30px;
+  border-radius: 20px;
+  font-size: 1.5rem; 
   border: none; 
   outline: none; 
-  display: block; 
-  resize: none; /* Evita que el usuario cambie el tamaño del textarea */
-  overflow-wrap: break-word; /* Permite que las palabras largas se dividan en varias líneas */
+  resize: none;
+  overflow-wrap: break-word;
 }
 
 .aviso {
@@ -88,61 +91,82 @@ body {
 }
 
 .container2 {
-  width: calc(25% - 10px); 
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
-  background-color: #EEEEEE;
 }
 
-.container2 h2 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.container2 p {
-  margin-top: 10px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
+/* Botones */
 .botones {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-.botones button {
+.botones button, #copyButton {
   margin-right: 10px;
   background-color: #134077;
   padding: 20px;
   color: white;
-  font-size: 16px;
+  font-size: 1rem; 
   border: none;
   outline: none;
   border-radius: 30px;
   cursor: pointer;
 }
+
+.botones button:hover, #copyButton:hover {
+  background-color: #1A559E;
+}
+
+/* Media Queries */
+
+
+/* Media Queries */
+@media (min-width: 375px) and (max-width: 768px) {
+  .contenedor-principal {
+    display: flex;
+  }
   
-.botones button:hover {
-  background-color: #1A559E;
+  .container1 {
+    flex: 3;
+    height: 100%;
+    margin-bottom: 10px; 
+    min-width: 100%;
+  }
+  
+  .container1 textarea {
+    height: 90%; 
+  }
+  
+  .botones {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .botones button {
+    margin-bottom: 10px;
+  }
+
+  .container2 img {
+    display: none; 
+  }
+  .container2 {
+    min-width: 100%;
+  
+  }
+  .container2 p {
+    word-wrap: break-word; /* Fuerza el ajuste de palabras largas */
+    overflow-wrap: break-word; /* Asegura compatibilidad con navegadores */
+    text-align: center; /* Opcional: Alínea el texto al centro */
+    max-width: 100%; /* Asegura que el texto no exceda el ancho del contenedor */
+  }
 }
 
-#copyButton {
-  padding: 20px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  cursor: pointer;
-  color: white;
-  background-color: #134077;
-  margin-top: 10%;
-  align-self: center; /* Centrar el botón horizontalmente */
-}
 
-#copyButton:hover {
-  background-color: #1A559E;
-}
+  
+
+
