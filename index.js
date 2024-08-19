@@ -50,8 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       resultContainer.querySelector("h2").style.display = "none";
       copyButton.style.display = "block"; // Mostrar el botón de copiar
     } else {
-      resultImg.style.display = "block"; // Mostrar la imagen
-      resultImg.src = "assets/none.svg";
+    
       resultContainer.querySelector("h2").textContent =
         "Ningún mensaje fue encontrado";
       resultText.textContent =
